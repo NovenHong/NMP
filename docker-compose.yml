@@ -28,4 +28,12 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: 123456
-    container_name: "X-mysql"  
+    container_name: "X-mysql"
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - /usr/local/docker_nmp/conf/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    container_name: "X-redis"                   
